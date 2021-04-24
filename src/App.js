@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './scss/App.scss';
+import patternbg from './images/pattern-bg.png';
+import Map from './components/Map';
 
 function App() {
   return (
     <div className="App">
-      <h1>Anas Afzal</h1>
+      <img src={patternbg}></img>
+      <Map></Map>
     </div>
   );
 }
