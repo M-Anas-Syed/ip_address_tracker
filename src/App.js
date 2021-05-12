@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './components/App.scss';
-import patternbg from './components/images/pattern-bg.png';
-import Map from './components/Map';
-import Search from './components/Search';
-import IPinfo from './components/IPinfo';
-import IPHeader from './components/IPHeader';
+import Map from './Map';
+import IPHeader from './IPHeader';
 
 function App() {
+  const [inputText, setInputText] = useState('');
+  const [submitText, setSubmitText] = useState('');
+  const [position, setPosition] = useState('');
+  const [ipLocation, setIpLocation] = useState('');
+
   return (
     <div className="App">
-      <IPHeader></IPHeader>
-      
-      <Map></Map>
-      {/* <h1>IP Address Tracker</h1>
-      <Search></Search>
-      <img className='background-img' src={patternbg} alt='backgroundimage'></img>
-      <IPinfo></IPinfo> 
-      <Map></Map>*/}
+      <IPHeader setIpLocation={setIpLocation} setPosition={setPosition} inputText={inputText} setInputText={setInputText} submitText={submitText} setSubmitText={setSubmitText}/>
+      <Map ipLocation={ipLocation} position={position}></Map>
     </div>
   );
 }

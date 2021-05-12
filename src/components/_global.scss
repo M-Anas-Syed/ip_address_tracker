@@ -59,18 +59,23 @@ h1{
 
 .submit1{
     position: absolute;
-    height: 60px;
+    height: 59px;
     width: 60px;
     background: black;
     border: 0;
     right: 0;
     border-radius: 0px 15px 15px 0px;
 
+    &:hover{
+        background: rgb(0, 153, 255);
+    }
 }
+
+#mapid { height: 180px; }
 
 .search{
     position: absolute;
-    width: 89%;
+    width: 85%;
     height: 95%;
     border: 0;
     border-radius: 15px 0px 0px 15px;
