@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function IPinfo({submitText, setPosition, setIpLocation}){
+    require('dotenv').config;
     const ip = submitText;
     const api_key = process.env.REACT_APP_IP_API_KEY;
     const url = "https://geo.ipify.org/api/v1";

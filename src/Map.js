@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 
 function Map({position, ipLocation}){
 
-    const token = process.env.REACT_APP_MAP_API_KEY;
+    require('dotenv').config;
     
     if(position == ''){
         position = [51.505, -0.09];
@@ -29,7 +29,7 @@ function Map({position, ipLocation}){
             attribution: "\xA9 <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
             url: "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
             id: "mapbox/streets-v11",
-            accessToken: token
+            accessToken: process.env.REACT_APP_MAP_API_KEY
             }),
             React.createElement(Marker, {
             position: position
