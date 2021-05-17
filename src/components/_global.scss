@@ -78,7 +78,8 @@ h1{
     }
 
     @media (max-width: 414px){
-        height: 57px;
+        min-height: 57px;
+        height: 0;
     }
 }
 
