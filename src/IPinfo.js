@@ -3,17 +3,9 @@ import axios from 'axios';
 
 function IPinfo({submitText, setPosition, setIpLocation}){
     const ip = submitText;
-    const api_key = "at_0jo9VohizhNxmsKvM3hZA4iiXS9EM";
+    const api_key = process.env.REACT_APP_IP_API_KEY;
     const url = "https://geo.ipify.org/api/v1";
     const [items, setItems] = useState(null);
-    
-    
-    /* const ipLocation = (ele) => {
-        let x = [];
-        x.push(ele.location.lat, ele.location.lng);
-        //console.log(x);
-        setPosition(x);
-    }    */
 
     const ipLocation = () => {
         if(items){
@@ -22,7 +14,6 @@ function IPinfo({submitText, setPosition, setIpLocation}){
             coordinates.push(items.location.lng);
             setPosition(coordinates);
             setIpLocation(items.location.region);
-            //console.log(coordinates);
         }
         
     } 
@@ -30,13 +21,12 @@ function IPinfo({submitText, setPosition, setIpLocation}){
     useEffect(() => {
         axios.get(url, {
             params: {apiKey: api_key,
-                 ipAddress: ip
+                domain: ip
                 },
         })
         .then((response) => {
             setItems(response.data);
             
-            //console.log(response.data);
         }, (error) => {
             console.log(error);
         });
@@ -68,12 +58,17 @@ function IPinfo({submitText, setPosition, setIpLocation}){
                 </div>  
             </div>
         );
+    }else{
+        return(
+            <div className='ipinfo ipinfo_container'>
+                <h3>
+                    Loading...
+                </h3>
+            </div>
+        );
     }
 
-    return(
-        <div >
-        </div>
-    );
+    
 
     
 }
