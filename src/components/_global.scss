@@ -67,23 +67,21 @@ h1{
 
 .submit1{
     position: absolute;
-    //height: 59px;
+    height: 59px;
     width: 60px;
     background: black;
     border: 0;
     right: 0;
     border-radius: 0px 15px 15px 0px;
     padding: 0;
-    top: 0;
-    bottom: 0;
 
     &:hover{
         background: hsl(0, 0%, 17%);
     }
 
     @media (max-width: 414px){
-        //min-height: 57px;
-        //height: 0;
+        min-height: inherit;
+        height: 0;
     }
 }
 
